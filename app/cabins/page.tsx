@@ -1,21 +1,31 @@
-import Counter from "@/components/Counter";
+import CabinList from "@/components/cabin-list";
+import { Suspense } from "react";
+import Loading from "./loading";
 
-const Page = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
-  const data = await res.json();
-
-  return (
-    <div className="mx-auto">
-      <Counter data={data} />
-      <ul>
-        {data.map((todo) => (
-          <li className="py-2 text-lg" key={todo.id}>
-            {todo.title}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+export const metadata = {
+  title: "Cabins",
 };
 
-export default Page;
+export default function Page() {
+  // CHANGE
+
+  return (
+    <div>
+      <h1 className="text-accent-400 mb-5 text-4xl font-medium">
+        Our Luxury Cabins
+      </h1>
+      <p className="text-primary-200 mb-10 text-lg">
+        Cozy yet luxurious cabins, located right in the heart of the Italian
+        Dolomites. Imagine waking up to beautiful mountain views, spending your
+        days exploring the dark forests around, or just relaxing in your private
+        hot tub under the stars. Enjoy nature&apos;s beauty in your own little
+        home away from home. The perfect spot for a peaceful, calm vacation.
+        Welcome to paradise.
+      </p>
+
+      <Suspense fallback={<Loading />}>
+        <CabinList />
+      </Suspense>
+    </div>
+  );
+}

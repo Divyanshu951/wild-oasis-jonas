@@ -1,7 +1,7 @@
 import Image from "next/image";
 import image1 from "@/public/about-1.jpg";
 import image2 from "@/public/about-2.jpg";
-import { getCabins } from "../_lib/data-service";
+import { getCabins } from "../../../../../lib/data-service";
 
 export const revalidate = 86400;
 
@@ -13,9 +13,9 @@ export default async function Page() {
   const cabins = await getCabins();
 
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
+    <div className="grid grid-cols-5 items-center gap-x-24 gap-y-32 text-lg">
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-accent-400 mb-10 text-4xl font-medium">
           Welcome to The Wild Oasis
         </h1>
 
@@ -50,7 +50,7 @@ export default async function Page() {
         />
       </div>
 
-      <div className="relative aspect-square col-span-2">
+      <div className="relative col-span-2 aspect-square">
         <Image
           src="/about-2.jpg"
           fill
@@ -60,7 +60,7 @@ export default async function Page() {
       </div>
 
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-accent-400 mb-10 text-4xl font-medium">
           Managed by our family since 1962
         </h1>
 
@@ -83,7 +83,7 @@ export default async function Page() {
           <div>
             <a
               href="/cabins"
-              className="inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
+              className="bg-accent-500 text-primary-800 hover:bg-accent-600 mt-4 inline-block px-8 py-5 text-lg font-semibold transition-all"
             >
               Explore our luxury cabins
             </a>
