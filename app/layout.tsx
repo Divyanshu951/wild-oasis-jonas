@@ -23,10 +23,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${josefinSans.className} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
+    <html lang="en">
+      <body
+        className={`${josefinSans.className} bg-primary relative flex min-h-screen flex-col text-white/80 antialiased`}
+      >
         <Header />
-        <main className="mx-auto max-w-7xl">{children}</main>
+
+        <div className="grid flex-1 px-8 py-12">
+          <main className="mx-auto w-full max-w-7xl">{children}</main>
+        </div>
       </body>
     </html>
   );

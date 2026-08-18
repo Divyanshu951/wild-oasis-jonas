@@ -13,6 +13,8 @@ export async function generateMetadata({
   return { title: `Cabin ${cabin[0].name}` };
 }
 
+export const instant = false;
+
 export async function generateStaticParams() {
   const cabins = await getCabins();
   const ids = cabins.map((cabin) => ({ cabinid: String(cabin.id) }));
@@ -33,11 +35,11 @@ export default async function Page({
   return (
     <div className="mx-auto mt-8 max-w-6xl">
       <div className="border-primary-800 mb-24 grid grid-cols-[3fr_4fr] gap-20 border px-10 py-3">
-        <div className="relative translate-x-5 translate-y-50 scale-[1.15]">
+        <div className="relative translate-x-25 translate-y-25">
           <Image
-            height={1000}
+            height={800}
             loading="eager"
-            width={400}
+            width={300}
             src={image}
             alt={`Cabin ${name}`}
           />

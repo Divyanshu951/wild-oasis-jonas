@@ -27,7 +27,7 @@ function CabinCard({
     <div className="border-primary-800 flex border">
       <div className="relative flex-1">
         <Image
-          src={`${image}`}
+          src={image}
           fill
           alt={`Cabin ${name}`}
           className="border-primary-800 border-r object-cover"
@@ -48,10 +48,10 @@ function CabinCard({
           </div>
 
           <p className="flex items-baseline justify-end gap-3">
-            {+discount > 0 ? (
+            {discount > 0 ? (
               <>
                 <span className="text-3xl font-[350]">
-                  ${+regularPrice - +discount}
+                  ${regularPrice - discount}
                 </span>
                 <span className="text-primary-600 font-semibold line-through">
                   ${regularPrice}
