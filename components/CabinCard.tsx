@@ -2,7 +2,25 @@ import { UsersIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-function CabinCard({ cabin }) {
+function CabinCard({
+  cabin,
+}: {
+  cabin: {
+    id: number;
+    name: string;
+    maxCapacity: number;
+    regularPrice: string;
+    discount: string;
+    description: string;
+    image: string;
+    capacity: number | null;
+    pricePerNight: string | null;
+    amenities: unknown;
+    isActive: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+  };
+}) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
@@ -16,7 +34,7 @@ function CabinCard({ cabin }) {
         />
       </div>
 
-      <div className="flex-grow">
+      <div className="grow">
         <div className="bg-primary-950 px-7 pt-5 pb-4">
           <h3 className="text-accent-500 mb-3 text-2xl font-semibold">
             Cabin {name}
@@ -30,10 +48,10 @@ function CabinCard({ cabin }) {
           </div>
 
           <p className="flex items-baseline justify-end gap-3">
-            {discount > 0 ? (
+            {+discount > 0 ? (
               <>
                 <span className="text-3xl font-[350]">
-                  ${regularPrice - discount}
+                  ${+regularPrice - +discount}
                 </span>
                 <span className="text-primary-600 font-semibold line-through">
                   ${regularPrice}
