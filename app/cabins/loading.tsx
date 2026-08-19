@@ -2,7 +2,7 @@ import { Loader } from "lucide-react";
 
 const Loading = () => {
   return (
-    <div className="flex w-screen justify-center">
+    <div className="flex justify-center">
       <Loader className="animate-spin" size={55} />
     </div>
   );

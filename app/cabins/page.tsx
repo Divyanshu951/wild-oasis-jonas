@@ -35,7 +35,7 @@ export default async function Page({
         <Filter />
       </div>
 
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />} key={capacity}>
         <CabinList filter={filter} />
       </Suspense>
     </div>

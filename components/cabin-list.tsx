@@ -10,7 +10,7 @@ const CabinList = async ({
 
   if (cabins.length === 0) return null;
 
-  if (!cabins.length) return null;
+  if (!cabins.length) return <p>No cabins available!</p>;
 
   let displayedCabins;
   if (filter === "all") displayedCabins = cabins;
