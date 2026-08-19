@@ -1,6 +1,7 @@
 import CabinList from "@/components/cabin-list";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Filter from "@/components/Filter";
 
 export const metadata = {
   title: "Cabins",
@@ -8,8 +9,13 @@ export const metadata = {
 
 // export const revalidate = 15;
 
-export default function Page() {
-  // CHANGE
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ capacity: "all" | "small" | "medium" | "large" }>;
+}) {
+  const { capacity } = await searchParams;
+  const filter = capacity ?? "all";
 
   return (
     <div>
@@ -25,8 +31,12 @@ export default function Page() {
         Welcome to paradise.
       </p>
 
+      <div className="mb-8 flex justify-end">
+        <Filter />
+      </div>
+
       <Suspense fallback={<Loading />}>
-        <CabinList />
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );

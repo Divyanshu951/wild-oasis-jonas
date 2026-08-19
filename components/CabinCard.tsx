@@ -28,6 +28,7 @@ function CabinCard({
       <div className="relative flex-1">
         <Image
           src={image}
+          sizes="24"
           fill
           alt={`Cabin ${name}`}
           className="border-primary-800 border-r object-cover"
